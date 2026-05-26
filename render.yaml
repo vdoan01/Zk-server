@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: zk-server
+    env: python
+    startCommand: gunicorn server:app
+    envVars:
+      - key: SHEET_URL
+        value: https://script.google.com/macros/s/AKfycbyRcicjvznCOUq4ZVrLquGf2Zy9E0jqJjLpy_uaEw9nCjlCLhTpzTvgSKK_M9TGjXDA/exec
