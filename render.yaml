@@ -2,6 +2,7 @@ services:
   - type: web
     name: zk-server
     env: python
+    buildCommand: pip install -r requirements.txt
     startCommand: gunicorn server:app
     envVars:
       - key: SHEET_URL
