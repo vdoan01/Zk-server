@@ -3,7 +3,7 @@ import requests
 import os
 
 app = Flask(__name__)
-SHEET_URL = os.environ.get("SHEET_URL")
+SHEET_URL = os.environ.get("SHEET_URL", "")
 
 @app.route('/iclock/cdata', methods=['GET','POST'])
 def receive():
@@ -17,6 +17,3 @@ def receive():
                 "punch_type": parts[4] if len(parts) > 4 else "0"
             })
     return "OK"
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8081)
